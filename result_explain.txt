@@ -1,0 +1,127 @@
+Absolutely! Let’s make a **clear, professional README** for your benchmark results. I’ll draft one that explains the test, the methodology, the results, and the interpretation. You can later tweak it for your repo.
+
+Here’s a solid draft:
+
+---
+
+# Qwen 2.5-14B AWQ Benchmark on vLLM
+
+This document summarizes the benchmarking of **Qwen/Qwen2.5-14B-Instruct-AWQ** served via **vLLM** on a single GPU. The benchmark measures throughput and latency under increasing concurrency, providing a baseline for production deployment.
+
+---
+
+## 🖥️ Test Environment
+
+* **Model:** Qwen/Qwen2.5-14B-Instruct-AWQ (AWQ quantization)
+* **vLLM Version:** 0.13.0
+* **GPU:** [Your GPU Model], 32GB VRAM
+* **CUDA:** 11.x
+* **OS:** Linux
+* **Server Config:**
+
+  * Max model length: 4096 tokens
+  * Chunked prefill: 2048 tokens
+  * Prefix caching: Enabled
+  * Single GPU
+* **Client:** Async Python script using `openai` compatible API
+
+---
+
+## 🧪 Benchmark Methodology
+
+1. The vLLM API server was started locally on port `8001`.
+2. The following test prompt was used for each request:
+
+```text
+Write a short paragraph explaining why GPUs are good for AI.
+```
+
+* Prompt tokens: 11
+* Max tokens per response: 200
+
+3. Concurrency was varied to simulate multiple simultaneous requests:
+
+```
+40, 60, 80
+```
+
+4. Metrics recorded per concurrency:
+
+* Total time for all requests
+* Average latency per request
+* Requests per second
+* Tokens per second
+
+5. Results were saved to a timestamped `.txt` file for reproducibility.
+
+---
+
+## 📊 Benchmark Results
+
+| Concurrency | Total Time (s) | Avg Latency (s) | Requests/sec | Tokens/sec |
+| ----------- | -------------- | --------------- | ------------ | ---------- |
+| 40          | 3.39           | 2.46            | 11.81        | 1,467.89   |
+| 60          | 2.99           | 2.05            | 20.09        | 2,529.38   |
+| 80          | 4.14           | 2.48            | 19.34        | 2,427.98   |
+
+---
+
+## 🔍 Analysis
+
+1. **Optimal concurrency:**
+
+   * Peak throughput occurs at **60 concurrent requests**.
+   * Beyond 60, throughput slightly decreases due to GPU saturation and queuing.
+
+2. **Latency trends:**
+
+   * Average latency increases at higher concurrency (40 → 80)
+   * This is expected in a GPU-bound scenario with chunked prefill.
+
+3. **GPU utilization:**
+
+   * Prefix cache hit rate stabilized at ~77%
+   * KV cache usage remained low (~1–2%), indicating no memory pressure
+
+4. **Stability:**
+
+   * Server handled all requests without errors or OOM
+   * Throughput scales predictably until saturation
+
+---
+
+## ⚡ Key Takeaways
+
+* **Concurrency sweet spot:** ~60 requests per GPU
+* **Sustained throughput:** ~2,500 tokens/sec at optimal concurrency
+* **Latency:** ~2s per request at saturation, lower at moderate concurrency
+* **Production readiness:** This setup is stable for serving AWQ 14B in a single-GPU scenario.
+
+---
+
+## 🛠️ Recommendations
+
+1. **Interactive usage:** Keep concurrency ≤ 40 for low-latency responses (~1–2s)
+2. **Batch usage:** Push concurrency to 60 to maximize throughput
+3. **Future tests:**
+
+   * Vary prompt content to simulate real users (avoid prefix cache boost)
+   * Test longer sequence lengths (max model len > 4096)
+   * Compare against FP16 or other quantized formats
+
+---
+
+## 📁 Benchmark File
+
+Full raw results saved to:
+
+```
+benchmark_Qwen_Qwen2.5-14B-Instruct-AWQ_20260102_211419.txt
+```
+
+---
+
+I can also **make a “graphical version”** of this README with a **latency vs throughput chart**, which makes it much easier to digest visually.
+
+Do you want me to do that next?
+

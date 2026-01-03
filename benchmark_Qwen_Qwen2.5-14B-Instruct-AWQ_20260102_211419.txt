@@ -1,0 +1,22 @@
+Model: Qwen/Qwen2.5-14B-Instruct-AWQ
+Prompt tokens: 11
+Max tokens: 200
+Timestamp: 2026-01-02T21:14:19.247762
+
+=== Concurrency = 40 ===
+Total time: 3.39s
+Avg latency: 2.46s
+Requests/sec: 11.81
+Tokens/sec: 1467.89
+
+=== Concurrency = 60 ===
+Total time: 2.99s
+Avg latency: 2.05s
+Requests/sec: 20.09
+Tokens/sec: 2529.38
+
+=== Concurrency = 80 ===
+Total time: 4.14s
+Avg latency: 2.48s
+Requests/sec: 19.34
+Tokens/sec: 2427.98

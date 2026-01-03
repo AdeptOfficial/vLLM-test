@@ -1,0 +1,19 @@
+Using model: Qwen/Qwen2.5-14B-Instruct-AWQ
+
+=== Concurrency = 40 ===
+Total time: 1.59s
+Avg latency: 0.96s
+Requests/sec: 25.10
+Tokens/sec: 1956.27
+
+=== Concurrency = 60 ===
+Total time: 2.01s
+Avg latency: 1.36s
+Requests/sec: 29.82
+Tokens/sec: 2396.37
+
+=== Concurrency = 80 ===
+Total time: 2.71s
+Avg latency: 1.65s
+Requests/sec: 29.47
+Tokens/sec: 2437.89

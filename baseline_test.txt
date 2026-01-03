@@ -1,0 +1,19 @@
+Using model: Qwen/Qwen2.5-14B-Instruct-AWQ
+
+=== Running with concurrency = 5 ===
+Total time: 1.15s
+Avg latency per request: 1.09s
+Requests/sec: 4.33
+Tokens/sec: 548.14
+
+=== Running with concurrency = 10 ===
+Total time: 1.32s
+Avg latency per request: 1.17s
+Requests/sec: 7.56
+Tokens/sec: 984.31
+
+=== Running with concurrency = 25 ===
+Total time: 1.59s
+Avg latency per request: 1.35s
+Requests/sec: 15.73
+Tokens/sec: 2010.84
