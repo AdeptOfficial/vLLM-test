@@ -1,0 +1,34 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and output
+*.log
+*.out
+*.err
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# vLLM cache / model downloads (optional)
+vllm_cache/
+*.safetensors
+*.pt
+*.bin
+
+# OS-specific files
+.DS_Store
+Thumbs.db
