@@ -1,7 +1,3 @@
-Absolutely! Let’s make a **clear, professional README** for your benchmark results. I’ll draft one that explains the test, the methodology, the results, and the interpretation. You can later tweak it for your repo.
-
-Here’s a solid draft:
-
 ---
 
 # Qwen 2.5-14B AWQ Benchmark on vLLM
@@ -120,8 +116,3 @@ benchmark_Qwen_Qwen2.5-14B-Instruct-AWQ_20260102_211419.txt
 ```
 
 ---
-
-I can also **make a “graphical version”** of this README with a **latency vs throughput chart**, which makes it much easier to digest visually.
-
-Do you want me to do that next?
-
