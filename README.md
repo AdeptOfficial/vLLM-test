@@ -1,5 +1,3 @@
-Absolutely! Here’s a fully rewritten, self-contained README that you can copy and paste. It combines setup instructions, serving the model, key parameters, and explains benchmarking results.
-
 ````markdown
 # vLLM Local Testing (Arch Linux / RTX 5090)
 
